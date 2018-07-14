@@ -40,7 +40,8 @@ function saveIdea(event) {
 
 
 
-// 2 prependChild
+
+2 prependChild
 
 // //How to make search input search without clicking SEARCH. Event
 // // listener on keyup?
