@@ -4,29 +4,33 @@
 		<link href="reset.css" rel="stylesheet">
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>IDEABOX!!</title>
 	</head>
 	<body>
 <!-- Top Part of Page -->	
-		<div role="banner">
-			<h1><span>idea</span>box</h1>
+		<div role="banner" class="user-idea-form">
+			<h1><span class="logo-color">idea</span>box</h1>
 			<form role="form">
-				<input type="text" placeholder="Title" aria-label="Please enter a title" class="alex-title-input">
-				<input type="text" placeholder="Body" aria-label="Please enter body content" class="alex-body-input">
-				<button name="save" type="submit" class="alex-save-button">save</button>
+				<input type="text" placeholder="Title" aria-label="Please enter a title" class="form-inputs">
+				<textarea placeholder="Body" rows="5" aria-label="Please enter body content" class="form-inputs"></textarea>
+				<button name="save" type="submit" class="save-idea-btn">save</button>
 			</form>
 		</div>
-<!-- Bottom Part of Page -->				
-		<div role="main">
-			<input type="search" placeholder="Search" aria-label="Please enter your search terms" class="alex-search-box">
+		<div role="main" class="list-section">
+			<input type="search" placeholder="Search" aria-label="Please enter your search terms" class="search-list">
 <!-- Idea Entry Start -->		
-			<section class="alex-idea-entry">
-				<!-- <article aria-label="idea entry">
-					<h2 class="alex-title-output">Example Idea 1</h2>
-					<img src="Icons/delete.svg" alt="delete icon">
-					<p class="alex-body-output">Tiramisu carrot cake fruitcake gingerbread bear clas powder icing tootsie roll ice cream.</p>
-					<img src="Icons/upvote.svg" alt="quality up-vote icon">
-					<img src="Icons/downvote.svg" alt="quality down-vote icon">
-					<p>quality: </p><span class="alex-quality-rating">swill</span>
+			<section class="idea-list">
+				<article aria-label="idea entry">
+					<div class="list-title">
+						<h2>Example Idea 1</h2>
+						<img src="Icons/delete.svg" alt="delete icon" class="vote-delete-btns">
+					</div>
+					<p class="idea-body">Tiramisu carrot cake fruitcake gingerbread bear clas powder icing tootsie roll ice cream.</p>
+					<div class="voting-content">
+						<img src="Icons/upvote.svg" alt="quality up-vote icon" class="vote-delete-btns">
+						<img src="Icons/downvote.svg" alt="quality down-vote icon" class="vote-delete-btns">
+						<p class="idea-quality">quality: </p><span class="quality-value">swill</span>
+					</div>
 					<hr class="section-break">
 				</article> -->
 			</section>
