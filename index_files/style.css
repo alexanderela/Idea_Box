@@ -1,0 +1,160 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+}
+
+.main-flex {
+	display: flex;
+}
+
+.side-left-main {
+	width: 60%;
+	height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+.side-right-main {
+	background-image: url("Images/ronaldo.jpg");
+	background-size: cover;
+	width: 40%;
+	height: 100vh;
+	display: inline-block;
+}
+
+
+.block-general {
+	background-color: red;
+	color: white;
+	height: 33.33vh;
+	width: 33.33%;
+}
+
+/*Blocks*/
+
+.block1 {
+	background-color: #0ABAB5;
+	color: white;
+	height: 33.33vh;
+	width: 66.66%;
+}
+
+.block2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #8D99AE;
+}
+
+.block3 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #000000;
+}
+
+.block4 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #8D99AE;
+}
+
+.block5 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #0ABAB5;
+}
+
+.block6 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #F72A2A;
+}
+
+.block7 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #000000;
+}
+
+.block8 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #F72A2A;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Media Queries*/
+
+@media screen and (max-width: 768px) {
+
+.side-right-main {
+	flex-direction: column-reverse;
+}
+
+.block-general {
+	height: 20vh;
+	width: 50%;
+}
+
+.block1 {
+	width: 100%;
+	height: 25vh;
+}
+
+.block8 {
+	width: 100%;
+	height: 15vh;
+}
+
+}
+
+
+@media screen and (max-width: 320px) {
+.main-flex {
+	flex-direction: column;
+	width: 100%;
+}
+
+.side-left-main {
+	flex-direction: column;
+	width: 100%;
+	flex-wrap: nowrap;
+}
+
+.side-right-main {
+	width: 100%;
+	height: 100vh;
+}
+
+.block-general {
+	height: 20vh;
+	width: 100%;
+}
+
+.block1 {
+	width: 100%;
+	height: 45vh;
+}
+
+}
