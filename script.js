@@ -12,32 +12,29 @@ var newSection = document.createElement("article");
 
 
 
-
 // Event Listeners
-saveBtn.addEventListener("click", saveIdea);
+saveBtn.addEventListener("click", ideaCard);
 
 
 //Functions
 
-
-
-
-
-function ideaCard(saveIdea) {
-  this.id = something
-  this.title = titleInput.value
-  this.body = bodyInput.value
-  this.quality = something
-};
-
-ideaCard.prototype.saveIdea = function() {
+function ideaCard(id, title, body, quality) {
 	event.preventDefault();
-	console.log("it's lit")
+  this.id = id;
+  this.title = titleInput.value;
+  this.body = bodyInput.value;
+  ideaTemplate(ideaCard);
+  // storeIdea();
+  }; 
+
+
+function ideaTemplate() {
+  console.log("helloooooo")
 	var newEntry = `<article aria-label="idea entry">
 						<div class="list-title">
-						<h2 class="idea-title-output">${titleInput.value}</h2>
+						<h2 class="idea-title-output">${ideaCard.title}</h2>
 						<img src="Icons/delete.svg" alt="delete icon" class="vote-delete-btns"></div>
-						<p class="idea-body">${bodyInput.value}</p>
+						<p class="idea-body">${ideaCard.body}</p>
 						<div class="voting-content">
 						<img src="Icons/upvote.svg" alt="quality up-vote icon" class="vote-delete-btns">
 						<img src="Icons/downvote.svg" alt="quality down-vote icon" class="vote-delete-btns">
@@ -48,9 +45,13 @@ ideaCard.prototype.saveIdea = function() {
 	document.getElementById("idea-form").reset();
 };
 
+function storeIdea() {
+
+};
 
 
-
+// Constructor functions
+// Each NEW instance of the function would creat a new idea card
 
 
 
