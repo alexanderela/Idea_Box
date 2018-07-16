@@ -20,7 +20,7 @@ h2 {
   font-size: 1.5em;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,6 +29,11 @@ form{
   justify-content: space-around;
 }
 
+/*//Alex change start//*/
+ article {
+  width: 100%;
+}
+/*//Alex change end//*/
 
 .form-inputs,
 .save-idea-btn {
@@ -42,17 +47,23 @@ form{
   height: 1.5em;
 }
 
+/*//Alex change start//*/
 .list-section {
-  display: flex;
-  flex-direction: column;
+/*  display: flex;*/
+/*  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  height: 15em;
-}
-
-.idea-list {
+  justify-content: space-around;*/
   width: 75%;
+  height: 15em;
+  margin: 0 auto;
 }
+/*//Alex change end//*/
+
+/*//Alex change start//*/
+.idea-list {
+  list-style-type: none;
+}
+/*//Alex change end//*/
 
 .user-idea-form {
   background-color: #E5F3F2;
@@ -77,11 +88,13 @@ form{
   background-color: #045E55;
 }
 
+/*//Alex change start//*/
 .search-list {
-  width: 75%;
+  width: 100%;
   border: solid 1px;
   border-color: #939598;
 }
+/*//Alex change end//*/
 
 .idea-body {
   color: #939598;
