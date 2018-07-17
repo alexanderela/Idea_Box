@@ -7,6 +7,7 @@ var titleOutput = document.querySelector(".idea-title-output");
 var bodyOutput = document.querySelector(".idea-body");
 var qualityRate = document.querySelector(".quality-value");
 var ideaSection = document.querySelector(".idea-list");
+var qualityArray = ["swill", "probable", "genius"];
 // var newSection = document.createElement("article");
 
 // Event Listeners
@@ -23,25 +24,38 @@ function IdeaCard() {
 function ideaTemplate(event) {
 	event.preventDefault();
   var newCard = new IdeaCard();
-  var element = document.createElement("li");
+  var newArticle = document.createElement("article");
 	var newEntry = 
 	`<article aria-label="idea entry" id="${newCard.id}">
 		<div class="list-title">
 			<h2 class="idea-title-output">${newCard.title}</h2>
-			<img src="Icons/delete.svg" alt="delete icon" class="vote-delete-btns">
+			<button class="vote-delete-btns delete-button"></button>
 		</div>
 		<p class="idea-body">${newCard.body}</p>
 		<div class="voting-content">
-			<img src="Icons/upvote.svg" alt="quality up-vote icon" class="vote-delete-btns">
-			<img src="Icons/downvote.svg" alt="quality down-vote icon" class="vote-delete-btns">
-			<p>quality: </p><span class="quality-value">swill</span>
+			<button class="vote-delete-btns upvote-button"></button>
+			<button class="vote-delete-btns downvote-button"></button>
+			<p>quality:</p><span class="quality-value"></span>
 	</div>
 	<hr class="section-break">
 </article>`;
-	element.innerHTML = newEntry;
-	ideaSection.prepend(element);
+	newArticle.innerHTML = newEntry;
+	ideaSection.prepend(newArticle);
 	document.getElementById("idea-form").reset();
+	var stringifiedCard = JSON.stringify(newCard);
+	var cardId = newCard.id;
+	localStorage.setItem([cardId], stringifiedCard);
+	console.log(stringifiedCard);
 };
+
+
+
+function ideaToObject() {
+
+};
+
+
+
 
 function storeIdea() {
 
@@ -56,25 +70,6 @@ function storeIdea() {
 // localStorage.getItem(); gets an item from storage based on the key provided.
 // localStorage.removeItem(); takes a key and removes that key and its associated value from storage.
 // localStorage.clear(); removes all items from storage for that domain.
-
-
-
-
-
-
-
-
-
-// `<article aria-label="idea entry">
-// <div class="list-title">
-// <h2 class="idea-title-output">${titleInput.value}</h2>
-// <img src="Icons/delete.svg" alt="delete icon" class="vote-delete-btns"></div>
-// <p class="idea-body">${bodyInput.value}</p>
-// 						<div class="voting-content">
-// 						<img src="Icons/upvote.svg" alt="quality up-vote icon" class="vote-delete-btns">
-// 						<img src="Icons/downvote.svg" alt="quality down-vote icon" class="vote-delete-btns">
-// 						<p>quality: </p><span class="quality-value">swill</span></div>
-// 						<hr class="section-break"></article>`
 
 
 
