@@ -93,6 +93,7 @@ form {
   width: 100%;
   border: solid 1px;
   border-color: #939598;
+  margin-bottom: 2rem;
 }
 /*//Alex change end//*/
 
@@ -101,23 +102,44 @@ form {
   margin: 1em 0em;
 }
 
-.idea-quality,
 .quality-value {
   color: #6D6E71;
+  margin-left: 0.25rem;
 }
+
 
 .section-break {
   color: #D1D3D4;
+  margin: 1.5rem auto;
 }
 
 .vote-delete-btns {
-  width: 1.5em;
+  width: 1.5rem;
+  border: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .voting-content {
   display: flex;
   height: 1.5em;
 }
+
+.delete-button {
+  background-image: url("Icons/delete.svg");
+}
+
+.upvote-button {
+  background-image: url("Icons/upvote.svg");
+  margin-right: 1rem;
+}
+
+.downvote-button {
+  background-image: url("Icons/downvote.svg");
+  margin-right: 1rem;
+}
+
+
 
 
 
