@@ -7,11 +7,40 @@ var titleOutput = document.querySelector(".idea-title-output");
 var bodyOutput = document.querySelector(".idea-body");
 var qualityRate = document.querySelector(".quality-value");
 var ideaSection = document.querySelector(".idea-list");
-var qualityArray = ["swill", "probable", "genius"];
+
 // var newSection = document.createElement("article");
+
+
+
 
 // Event Listeners
 saveBtn.addEventListener("click", ideaTemplate);
+ideaSection.addEventListener("click", events);
+document.addEventListener("DOMContentLoaded", function() {
+	for(var i = 0; i < localStorage.length; i++) {
+		var retrievedCard = localStorage.getItem(localStorage.key(i));
+		var parsedCard = JSON.parse(retrievedCard);
+		console.log(parsedCard);
+    reloadCard(parsedCard);
+	};
+});
+
+
+function events(event) {
+	console.log(event.target)
+
+	// If event.target = class name of element
+
+}
+
+// if index.length = 0
+
+// 	find index of quality i have. figure out how to grab quality and then 
+// console.log
+
+
+
+
 
 //Functions
 function IdeaCard() {
@@ -42,24 +71,48 @@ function ideaTemplate(event) {
 	newArticle.innerHTML = newEntry;
 	ideaSection.prepend(newArticle);
 	document.getElementById("idea-form").reset();
-	var stringifiedCard = JSON.stringify(newCard);
-	var cardId = newCard.id;
+	storeIdea(newCard)
+};
+
+
+
+// function reloadIdea() {
+// 	var retrievedCard = localStorage.getItem(localStorage.key);
+// 	// var cardId = card.id;
+// 	var parsedCard = JSON.parse(retrievedCard);
+//     reloadCard(parsedCard);
+// };
+
+function reloadCard(card) {
+	var newArticle = document.createElement("article");
+	var newEntry = 
+	`<article aria-label="idea entry" id="${card.id}">
+		<div class="list-title">
+			<h2 class="idea-title-output">${card.title}</h2>
+			<button class="vote-delete-btns delete-button"></button>
+		</div>
+		<p class="idea-body">${card.body}</p>
+		<div class="voting-content">
+			<button class="vote-delete-btns upvote-button"></button>
+			<button class="vote-delete-btns downvote-button"></button>
+			<p>quality:</p><span class="quality-value">${card.quality}</span>
+	</div>
+	<hr class="section-break">
+</article>`;
+	newArticle.innerHTML = newEntry;
+	ideaSection.prepend(newArticle);
+};
+
+
+
+function storeIdea(card) {
+	var stringifiedCard = JSON.stringify(card);
+	var cardId = card.id;
 	localStorage.setItem([cardId], stringifiedCard);
 	console.log(stringifiedCard);
 };
 
 
-
-function ideaToObject() {
-
-};
-
-
-
-
-function storeIdea() {
-
-};
 
 
 // Constructor functions
