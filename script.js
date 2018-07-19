@@ -11,8 +11,6 @@ var ideaSection = document.querySelector(".idea-list");
 // var newSection = document.createElement("article");
 
 
-
-
 // Event Listeners
 saveBtn.addEventListener("click", ideaTemplate);
 ideaSection.addEventListener("click", events);
@@ -20,14 +18,26 @@ document.addEventListener("DOMContentLoaded", function() {
 	for(var i = 0; i < localStorage.length; i++) {
 		var retrievedCard = localStorage.getItem(localStorage.key(i));
 		var parsedCard = JSON.parse(retrievedCard);
-		console.log(parsedCard);
+		// console.log(parsedCard);
     reloadCard(parsedCard);
 	};
 });
 
+ideaSection.addEventListener("click", function(event) {
+	console.log(event.target.parentNode.parentNode)
+	var deleteBtn = event.target;
+	var remove = event.target.parentNode.parentNode;
+		// console.log(delet eBtn.className);
+	if(deleteBtn.className === "vote-delete-btns delete-button") {
+
+		remove.remove();
+		// console.log(this)
+		localStorage.removeItem(remove.id);
+	};
+});
 
 function events(event) {
-	console.log(event.target)
+	// console.log(event.target)
 
 	// If event.target = class name of element
 
