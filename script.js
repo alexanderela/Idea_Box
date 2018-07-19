@@ -7,11 +7,83 @@ var titleOutput = document.querySelector(".idea-title-output");
 var bodyOutput = document.querySelector(".idea-body");
 var qualityRate = document.querySelector(".quality-value");
 var ideaSection = document.querySelector(".idea-list");
-var qualityArray = ["swill", "probable", "genius"];
+
 // var newSection = document.createElement("article");
+
+
+
 
 // Event Listeners
 saveBtn.addEventListener("click", ideaTemplate);
+document.addEventListener("DOMContentLoaded", function() {
+	for (var i = 0; i < localStorage.length; i++) {
+		var retrievedCard = localStorage.getItem(localStorage.key(i));
+		var parsedCard = JSON.parse(retrievedCard);
+    reloadCard(parsedCard);
+	};
+});
+
+
+
+ideaSection.addEventListener("click", function(event) {
+	var deleteBtn = event.target;
+	var key = deleteBtn.parentNode.parentNode.id;
+	if (deleteBtn.className === "vote-delete-btns delete-button") {
+		deleteBtn.parentNode.parentNode.parentNode.remove(deleteBtn);
+		localStorage.removeItem(key);
+	};
+	
+	
+
+
+
+	var retrievedCard = localStorage.getItem(key);
+	var parsedCard = JSON.parse(retrievedCard);
+	
+	var upvoteBtn = event.target;
+
+	var qualityText = key.firstChild.nextSibling.nextSibling.lastChild;
+	
+	if (upvoteBtn.className === "vote-delete-btns upvote-button" && parsedCard.quality == "swill") {
+		console.log(parsedCard.quality);
+		parsedCard.quality = "plausible";
+		console.log(parsedCard.quality);
+		qualityText.innerText = "plausible";
+		storeIdea(parsedCard);
+
+
+	
+
+
+	} else if (upvoteBtn.className === "vote-delete-btns upvote-button" && parsedCard.quality == "plausible") {
+		parsedCard.quality = "genius";
+		qualityText.innerText = "genius";
+	};
+
+//get the object of that particular key
+//parse it
+//change it by targeting the quality key
+//stringify
+//put it back in with the key as the 'label'
+
+	
+
+
+	// if (card.quality === "genius") {
+	// 	card.quality === "plausible";
+	// } else if (card.quality === "plausible") {
+	// 	card.quality === "swill";
+	// };
+});
+
+
+
+
+
+
+
+
+
 
 //Functions
 function IdeaCard() {
@@ -35,31 +107,51 @@ function ideaTemplate(event) {
 		<div class="voting-content">
 			<button class="vote-delete-btns upvote-button"></button>
 			<button class="vote-delete-btns downvote-button"></button>
-			<p>quality:</p><span class="quality-value"></span>
-	</div>
-	<hr class="section-break">
-</article>`;
+			<p>quality:</p>
+			<span class="quality-value">${newCard.quality}</span>
+		</div>
+		<hr class="section-break">
+	</article>`;
 	newArticle.innerHTML = newEntry;
 	ideaSection.prepend(newArticle);
 	document.getElementById("idea-form").reset();
-	var stringifiedCard = JSON.stringify(newCard);
-	var cardId = newCard.id;
+	storeIdea(newCard)
+};
+
+
+function storeIdea(card) {
+	var stringifiedCard = JSON.stringify(card);
+	var cardId = card.id;
 	localStorage.setItem([cardId], stringifiedCard);
-	console.log(stringifiedCard);
 };
 
 
 
-function ideaToObject() {
-
+function reloadCard(card) {
+	var newArticle = document.createElement("article");
+	var newEntry = 
+	`<article aria-label="idea entry" id="${card.id}">
+		<div class="list-title">
+			<h2 class="idea-title-output">${card.title}</h2>
+			<button class="vote-delete-btns delete-button"></button>
+		</div>
+		<p class="idea-body">${card.body}</p>
+		<div class="voting-content">
+			<button class="vote-delete-btns upvote-button"></button>
+			<button class="vote-delete-btns downvote-button"></button>
+			<p>quality:</p>
+			<span class="quality-value">${card.quality}</span>
+		</div>
+		<hr class="section-break">
+	</article>`;
+	newArticle.innerHTML = newEntry;
+	ideaSection.prepend(newArticle);
 };
 
 
 
 
-function storeIdea() {
 
-};
 
 
 // Constructor functions
