@@ -12,7 +12,6 @@ var ideaSection = document.querySelector(".idea-list");
 
 
 
-
 // Event Listeners
 saveBtn.addEventListener("click", ideaTemplate);
 
@@ -26,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
 ideaSection.addEventListener("click", function(event) {
 	var deleteBtn = event.target;
 	var key = deleteBtn.parentNode.parentNode.id;
@@ -36,9 +34,6 @@ ideaSection.addEventListener("click", function(event) {
 	};
 	
 	
-
-
-
 	var retrievedCard = localStorage.getItem(key);
 	var parsedCard = JSON.parse(retrievedCard);
 	
@@ -52,9 +47,6 @@ ideaSection.addEventListener("click", function(event) {
 		console.log(parsedCard.quality);
 		qualityText.innerText = "plausible";
 		storeIdea(parsedCard);
-
-
-	
 
 
 	} else if (upvoteBtn.className === "vote-delete-btns upvote-button" && parsedCard.quality == "plausible") {
