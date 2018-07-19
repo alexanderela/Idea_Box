@@ -15,6 +15,7 @@ var ideaSection = document.querySelector(".idea-list");
 
 // Event Listeners
 saveBtn.addEventListener("click", ideaTemplate);
+
 document.addEventListener("DOMContentLoaded", function() {
 	for (var i = 0; i < localStorage.length; i++) {
 		var retrievedCard = localStorage.getItem(localStorage.key(i));
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     reloadCard(parsedCard);
 	};
 });
+
 
 
 
@@ -76,15 +78,6 @@ ideaSection.addEventListener("click", function(event) {
 	// };
 });
 
-
-
-
-
-
-
-
-
-
 //Functions
 function IdeaCard() {
 	this.id = Date.now();
@@ -126,7 +119,6 @@ function storeIdea(card) {
 };
 
 
-
 function reloadCard(card) {
 	var newArticle = document.createElement("article");
 	var newEntry = 
@@ -144,12 +136,19 @@ function reloadCard(card) {
 		</div>
 		<hr class="section-break">
 	</article>`;
+
 	newArticle.innerHTML = newEntry;
 	ideaSection.prepend(newArticle);
 };
 
 
 
+function storeIdea(card) {
+	var stringifiedCard = JSON.stringify(card);
+	var cardId = card.id;
+	localStorage.setItem([cardId], stringifiedCard);
+	console.log(stringifiedCard);
+};
 
 
 
